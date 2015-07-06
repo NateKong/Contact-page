@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Nathan Kong">
+		<title>Nathan W. Kong</title>
+		<link rel="icon" href="../images/nk.png" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="Contact.css" />
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+<body>
+	<div id="page">
+		<h2>Drop Me A Line</h2>
+		<br>
+		
+		<form method="post" action="contact.php">
+			<label>Name</label>
+			<input id="name" name="name" type="text" required>
+			<span id="nameError" class="error"></span>
+			
+			<label>Email</label>
+			<input id="email" name="email" type="email" required>
+			<span class="error" id="emailError"></span>
+			
+			<label>Message</label>
+			<textarea id="message" name="message" type="text" required></textarea>
+			<span class="error" id="messageError"></span>
+						
+			<div><input id="submit" type="submit" value="EMAIL ME"></div>
+		</form>
+		
+		<script>
+			var validName = false;
+			var validEmail = false;
+			var name, email;
+			
+			function submit() {
+				if(validName && validEmail)
+				{$('#submit').show();}
+				else {$('#submit').hide();}
+			}
+			
+			submit();
+			
+			$('#name').focus( function(){$('#nameError').text("");})
+				.blur( function(){
+					name = document.getElementById('name').value;
+			 		if(name.length > 0)
+			 		{	
+				 		if ( !/^[a-zA-Z\s]+$/.test(name) )
+						{	$('#nameError').text("Letters only");	validName = false;}
+						else
+						{	validName = true; submit(); }
+					}
+					else {$('#nameError').text("Please enter a name");validName = false;}
+			});
+			
+			function validateEmail(email) { 
+			// http://stackoverflow.com/a/46181/11236
+			    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			    return re.test(email);
+			}
+			
+			$('#email').focus( function(){$('#emailError').text("");})
+				.blur( function() {
+					email = document.getElementById('email').value;
+					if(email.length > 0)
+					{
+				 		if ( validateEmail(email) )
+				 		{	validEmail = true;submit(); }
+				 		else
+						{	$('#emailError').text("Please add a valid email");	validEmail = false;}
+					}
+					else {	$('#emailError').text("Please add an email");	validEmail = false;}
+			});						
+		</script>
+		
+	</div>
+	
+</body>
+</html>

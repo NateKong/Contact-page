@@ -1,0 +1,90 @@
+/********************
+ * Nathan Kong contact
+ *********************/
+html, body{
+	margin:0px;
+	padding:0px;
+}
+
+#page {
+	margin:0 auto;
+	padding: 5% 0 5%;
+	font-family:"Century Gothic", "rockwell", "optima", Tahoma;
+	width:100%;
+	height: auto;
+	background:#FFFFFF;
+}
+
+	#page h2{
+		margin: 0 auto;
+		text-align: center;
+		width:100%;
+		font: 4em "Century Gothic", "rockwell", "optima", Tahoma;
+		color:#6600FF;
+	}
+	
+	#page div {
+		text-align: center;
+	}
+
+.error {
+	color:#FF0000;
+}
+
+form{
+	margin:0 auto;
+	width: 65%;
+}
+
+label{
+	display: block;
+	margin-top: 20px;
+	letter-spacing:2px;
+	color:#6600FF;
+}
+
+input,textarea {
+	width: 100%;
+	background: #efefef;
+	border:1px solid #dedede;
+	padding: 10px;
+	margin: 0 auto;
+	font-size:0.9em;
+	color:#3a3a3a;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	text-align: left;
+}
+
+input:focus, textarea:focus {
+	border: 1px solid #97d6eb;
+}
+
+input {
+	height: 15px;
+}
+
+textarea{
+	height: 200px;
+}
+
+#submit{
+	width: 50%;
+	height: 35px;
+	text-align: center;
+	background:#dedede;
+	border:none;
+	cursor:pointer;
+	margin-top: 20px;
+	opacity:0.75;
+}
+
+#submit:hover {
+	opacity:1.0;
+}
+
+#submit:active {
+	opacity:0.8;
+	background: #97d6eb;
+}
